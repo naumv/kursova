@@ -1,0 +1,120 @@
+body
+{
+    background-color: hsl(0, 0%, 88%);
+}
+.content-wrapper > .main_part
+{
+    display: grid;
+    grid-template-rows: repeat(auto-fill, minmax(150px, 1fr)) repeat(auto-fill, minmax(150px, 1fr)) repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-gap: 5px;
+    grid-template-areas: 
+    "asid_left article1 asid_right "
+    "asid_left article2 asid_right"
+    "asid_left article3 asid_right";
+}
+.content-wrapper .main_part .aside_left 
+{
+   grid-area: asid_left;
+}
+.content-wrapper .main_part .aside_right 
+{
+    grid-area: asid_right;
+}
+.content-wrapper .main_part .article1 
+{
+    grid-area: article1;
+ 
+}
+.content-wrapper .main_part .article2 
+{
+    grid-area: article2;
+}
+.content-wrapper .main_part .article3 
+{
+    grid-area: article3;
+}
+.content-wrapper .main_part aside section
+{
+    border: 2px;
+    border-color: black;
+    border-style: inset; 
+    margin: 5px 0;
+    background-color: rgb(33, 33, 33);
+    text-align: center;  /* хай покищо буде*/
+}
+.content-wrapper .main_part aside 
+{
+    color: rgb(248, 248, 248);
+}
+.content-wrapper .main_part aside > div
+{
+    border: 2px;
+    border-color: black;
+    border-style: inset; 
+    margin: 5px 0;
+    background-color: rgb(33, 33, 33);
+}
+.content-wrapper .main_part aside > div ol li::-moz-list-number { 
+    color: rgb(231, 33, 84);
+  }
+.content-wrapper .main_part aside > div h2
+{
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: rgb(100, 100, 100);
+    padding: 2%;
+    padding-left: 2em;
+    margin-top: 0;
+    
+}
+.content-wrapper .main_part aside > div h3
+{
+    color: rgb(231, 33, 84);
+    margin-left: 2em;
+}
+.content-wrapper .main_part aside > div p
+{
+    margin-left: 1em;
+}
+.content-wrapper .main_part aside > div figure img
+{
+    width: 100%;
+}
+.content-wrapper .main_part aside > div figure figcaption
+{
+    color			: white;
+	font			: bold 24px/45px Helvetica, Sans-Serif;
+	letter-spacing	: -1px;
+	background		: rgb(0, 0, 0); /* на случай, если следующая строка не сработает */
+	background		: rgba(0, 0, 0, 0.7);
+    padding			: 0.22em;
+    padding-left    : 1em;
+    position    	: relative;
+    top		        : -2.5em;
+    bottom          : 0;
+    z-index         : 75;
+} 
+.content-wrapper .main_part article img
+{
+    float: left;
+    border: 2px;
+    border-style: solid;
+    border-radius: 5px;
+    padding: 3px;
+    border-color: rgba(0, 0, 0, 0.5);
+    margin: 3px;
+}
+.content-wrapper .main_part article h2
+{
+    text-align: center;
+    color: rgb(39, 39, 39);
+}
+.content-wrapper .main_part article div
+{
+   padding: 1em;
+}
+.content-wrapper .main_part article span
+{
+   padding: 1em;
+}

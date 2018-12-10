@@ -1,0 +1,79 @@
+.header nav 
+{
+    display: inline-block; 
+    position: absolute;
+    right:2%;
+    top: 40%;
+}
+
+.header .highest_row h1
+{
+    display: inline-block;
+    padding: 1px;
+    margin: 1px;
+}
+
+.header .highest_row h2
+{
+    font-size: 70%;
+    display: inline-block;
+    padding: 0;
+}
+
+.header .highest_row div 
+{
+    width: 98vw;
+    z-index: 80;
+    position: fixed ;
+    background-color: rgb(25, 25, 25);
+    color: rgb(100, 100, 100);
+    top: 0;
+}
+.header a
+{
+    color: rgb(100, 100, 100);
+}
+.header .forms
+{
+    background-color: #104696;
+    margin-top: 3em;
+}
+.header .forms form
+{
+    display: inline;
+}
+.header h2
+{
+    color: rgb(168, 166, 166);
+}
+.header figure img
+{
+    width: 98vw;
+}
+.header figure
+{
+    margin-left: 0em;
+}
+.header figure figcaption
+{
+    color			: white;
+	font			: bold 24px/45px Helvetica, Sans-Serif;
+	letter-spacing	: -1px;
+	background		: rgb(0, 0, 0); /* на случай, если следующая строка не сработает */
+	background		: rgba(0, 0, 0, 0.7);
+    padding			: 10px;
+    position    	: absolute;
+	top		        : 200px;
+	right	    	: 100px;
+    padding-left    : 1vw;
+}
+.header > .forms .log_in
+{
+    display: inline;
+}
+.header > .forms .search
+{
+    position: absolute;
+    right: 10%;
+    /* top: 4%; */
+}
