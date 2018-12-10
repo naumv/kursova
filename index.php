@@ -13,7 +13,7 @@
             <div class="highest_row">
                 <div>
                     <h1> Kinobase</h1>
-                    <h2>Відкрий світ кіно разом з нами</h2>
+                    <h2>Відкрий світ кіно разом з                                 echo "</table>";нами</h2>
                     <nav>
                         <!--Кіно Серіали Афіша Тексти РЕйтинги Програми і шоу -->
                         <a href=#>Кіно</a>
@@ -26,7 +26,6 @@
                 </div>
             </div>
            <div class="forms">
-               <!--
                 <form autocomplete="on" class="log_out">
                     <input type="submit" value="Зареєструватись">
                 </form>
@@ -37,12 +36,7 @@
                 <form name='search' method='get' autocomplete="on" class="search">
                     <input type="search" aria-label="Пошук">
                     <input type="submit" value="Пошук">
-                </form>-->
-                <?php 
-                echo "<p>";
-                require './scripts/connect.php';
-                echo "</p>";
-                ?> 
+                </form>
             </div>
 
             <h2>Рейтинг очікування</h2>
@@ -95,7 +89,7 @@
             <article class="article3">
                 <h2> Новини серіалів</h2>
                 <div> <img src='image/dictator.png' alt='Диктатор'>
-                    <main> 
+                    <main>                                 echo "</table>";
                         <span>
                             Тут текст Девіда Шор про фінал Доктора Хауса.багато тексту, дуже багато тексту. Прям ну вде що неможна, стільки тексту. 
                             Прям ну вде що неможна, стільки тексту.
@@ -117,11 +111,17 @@
                 <div>
                     <h2> Kinokasa tratatam</h2>
                     <ol>
-                        <li>Ludi v chornomu 3</li>
-                        <li>Zaboronena zona</li>
-                        <li>Duktaator</li>
-                        <li>Pohmuri tini</li>
-                        <li>Mesniki</li>
+                        <?php
+                            require './scripts/connect.php';
+                            $sql = "SELECT * FROM top5";
+                            $result = $conn->query($sql);
+                            if ($result->num_rows > 0) {
+                                 // output data of each row
+                                while($row = $result->fetch_assoc()) {
+                                    echo "<li>".$row["name"]." (".$row["count"].")</li>";
+                                }
+                            }
+                        ?>
                     </ol>
                 </div>
                 <div>
