@@ -13,7 +13,7 @@
             <div class="highest_row">
                 <div>
                     <h1> Kinobase</h1>
-                    <h2>Відкрий світ кіно разом з                                 echo "</table>";нами</h2>
+                    <h2>Відкрий світ кіно разом з нами</h2>
                     <nav>
                         <!--Кіно Серіали Афіша Тексти РЕйтинги Програми і шоу -->
                         <a href=#>Кіно</a>
@@ -89,7 +89,7 @@
             <article class="article3">
                 <h2> Новини серіалів</h2>
                 <div> <img src='image/dictator.png' alt='Диктатор'>
-                    <main>                                 echo "</table>";
+                    <main>                               
                         <span>
                             Тут текст Девіда Шор про фінал Доктора Хауса.багато тексту, дуже багато тексту. Прям ну вде що неможна, стільки тексту. 
                             Прям ну вде що неможна, стільки тексту.
@@ -109,7 +109,7 @@
 
             <aside class = aside_right>
                 <div>
-                    <h2> Kinokasa tratatam</h2>
+                    <h2>П'ять найпопулярніших фільмів</h2>
                     <ol>
                         <?php
                             require './scripts/connect.php';
@@ -118,27 +118,38 @@
                             if ($result->num_rows > 0) {
                                  // output data of each row
                                 while($row = $result->fetch_assoc()) {
-                                    echo "<li>".$row["name"]." (".$row["count"].")</li>";
+                                    echo "<li>".$row["name"]." (".$row["count"].")</li>\n";
                                 }
                             }
+                            $conn->close();
                         ?>
                     </ol>
                 </div>
                 <div>
-                    <h2>Ostanni comentary</h2>
-                    <h3>Lucar dna</h3>
-                    <p>Tut text pro lucara i vse take</p>
-                    <h3>Nestrimni</h3>
-                    <p>Tut texst pro nestrumnih i vse take</p>
+                    <h2>П'ять випадкових фільмів</h2>
+                    <ol>
+                    <?php
+                            require './scripts/connect.php';
+                            $sql = "SELECT * FROM rand5";
+                            $result = $conn->query($sql);
+                            if ($result->num_rows > 0) {
+                                 // output data of each row
+                                while($row = $result->fetch_assoc()) {
+                                    echo "<li>".$row["name"]."</li>\n";
+                                }
+                            }
+                            $conn->close();
+                        ?>
+                    </ol>
                 </div>
 
-                <div>
+                <!--<div>
                     <h2>Vupadkovi filmu</h2>
                     <figure>
                         <img src='image/morboy.png' alt='Морський бій'>
                         <figcaption>Морський бій</figcaption>
                     </figure>
-                </div>
+                </div>-->
             </aside>
         </div>
         <footer class="footer">
