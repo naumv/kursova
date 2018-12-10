@@ -25,7 +25,8 @@
                     </nav>
                 </div>
             </div>
-            <div class="forms">
+           <div class="forms">
+               <!--
                 <form autocomplete="on" class="log_out">
                     <input type="submit" value="Зареєструватись">
                 </form>
@@ -36,8 +37,14 @@
                 <form name='search' method='get' autocomplete="on" class="search">
                     <input type="search" aria-label="Пошук">
                     <input type="submit" value="Пошук">
-                </form>
+                </form>-->
+                <?php 
+                echo "<p>";
+                require './scripts/connect.php';
+                echo "</p>";
+                ?> 
             </div>
+
             <h2>Рейтинг очікування</h2>
             <figure>
                 <img src='image/header1.png' alt='Мадагаскар 3' />
