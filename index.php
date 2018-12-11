@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="uk">
-
+<?php session_start();?>
 <head>
     <meta charset="UTF-8">
     <title>Головна сторінка</title>
@@ -26,10 +26,10 @@
                 </div>
             </div>
            <div class="forms">
-                <form autocomplete="on" class="log_out">
+                <form autocomplete="on" class="log_up" action="./scripts/reg.php" method="post" >
                     <input type="submit" value="Зареєструватись">
                 </form>
-                <form autocomplete="on" class="log_in">
+                <form autocomplete="on" class="log_in" action="./scripts/log_in.php">
                     <input type="submit" value="Ввійти">
                 </form>
 
@@ -111,35 +111,13 @@
                 <div>
                     <h2>П'ять найпопулярніших фільмів</h2>
                     <ol>
-                        <?php
-                            require './scripts/connect.php';
-                            $sql = "SELECT * FROM top5";
-                            $result = $conn->query($sql);
-                            if ($result->num_rows > 0) {
-                                 // output data of each row
-                                while($row = $result->fetch_assoc()) {
-                                    echo "<li><a href=".$row[url].">".$row["name"]."</a> (".$row["count"].")</li>\n";
-                                }
-                            }
-                            $conn->close();
-                        ?>
+                        <?php require './scripts/top5.php';?>
                     </ol>
                 </div>
                 <div>
                     <h2>П'ять випадкових фільмів</h2>
                     <ol>
-                    <?php
-                            require './scripts/connect.php';
-                            $sql = "SELECT * FROM rand5";
-                            $result = $conn->query($sql);
-                            if ($result->num_rows > 0) {
-                                 // output data of each row
-                                while($row = $result->fetch_assoc()) {
-                                    echo "<li>".$row["name"]."</li>\n";
-                                }
-                            }
-                            $conn->close();
-                        ?>
+                    <?php require './scripts/rand5.php';?>
                     </ol>
                 </div>
 
