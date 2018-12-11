@@ -26,13 +26,24 @@
                 </div>
             </div>
            <div class="forms">
-                <form autocomplete="on" class="log_up" action="./scripts/reg.php" method="post" >
-                    <input type="submit" value="Зареєструватись">
-                </form>
-                <form autocomplete="on" class="log_in" action="./scripts/log_in.php">
+               <?php 
+               if (empty($_SESSION['login']) or empty($_SESSION['idUser']))
+               {
+               // Если пусты, то мы не выводим ссылку
+               echo '<form autocomplete="on" class="log_up" action="./scripts/reg.php" method="post" >';
+                echo     '<input type="submit" value="Зареєструватись">';
+                echo '</form>';
+                echo '<form autocomplete="on" class="log_in" action="./scripts/log_in.php">
                     <input type="submit" value="Ввійти">
-                </form>
-
+                </form>';
+               }
+               else
+               {
+               // Если не пусты, то мы выводим ссылку
+               echo "Привіт, ".$_SESSION['name'].".";
+               }
+               
+                ?>
                 <form name='search' method='get' autocomplete="on" class="search">
                     <input type="search" aria-label="Пошук">
                     <input type="submit" value="Пошук">
