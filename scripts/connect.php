@@ -1,10 +1,11 @@
 <?php
-$servername = "localhost";
-$username = "gsc_prukol";
+$servername = "zanner.org.ua";
+$username = "ka66_03";
 $password = "djKjlz14nfyr";
-$dbname = "kursova2";
+$dbname = "ka66_03";
+$port = 33321;
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $dbname, $port);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
