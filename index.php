@@ -118,7 +118,7 @@
                             if ($result->num_rows > 0) {
                                  // output data of each row
                                 while($row = $result->fetch_assoc()) {
-                                    echo "<li>".$row["name"]." (".$row["count"].")</li>\n";
+                                    echo "<li><a href=".$row[url].">".$row["name"]."</a> (".$row["count"].")</li>\n";
                                 }
                             }
                             $conn->close();
