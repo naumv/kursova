@@ -75,7 +75,7 @@
 
 
             <article class="article1">
-                <h2> Що йде в кінотеатрах</h2>
+                <!--<h2> Що йде в кінотеатрах</h2>-->
                 <ol>
                 <?php require './scripts/my_video.php'; ?>
                 </ol>
