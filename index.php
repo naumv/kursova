@@ -41,6 +41,9 @@
                {
                // Если не пусты, то мы выводим ссылку
                echo "Привіт, ".$_SESSION['name'].".";
+               echo '<form autocomplete="on" class="log_out" action="./scripts/exit.php">
+                    <input type="submit" value="Вийти">
+                </form>';
                }
                
                 ?>
