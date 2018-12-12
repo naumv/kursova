@@ -22,7 +22,7 @@ HERE;
     else {
         echo <<<HERE
     <p>
-        Ви ввійшли на сайт як $_SESSION['name']
+        Ви ввійшли на сайт як {$_SESSION['name']}
     </p>
     <form autocomplete="on" class="log_out" action="./scripts/exit.php">
         <input type="submit" value="Переглянути мої відео">
