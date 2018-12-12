@@ -62,9 +62,7 @@
         <div class="main_part">
             <aside class="aside_left">
                 <section>
-                    <h2> Obitel zla</h2>
-                    <img src='image/obzla.png' alt='Обитель зла'>
-                    <p> Tut text pro tizer obiteli zla chastina 5</p>
+                  <?php require '.scripts/left_aside.php'; ?>
                 </section>
                 <section>
                     <h2> MAdagaskar</h2>
