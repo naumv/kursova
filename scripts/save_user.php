@@ -40,11 +40,14 @@
  // если такого нет, то сохраняем данные
     $result2 = $conn->query("INSERT INTO Users (login,passwordHash, name) VALUES('$login','$password', '$name')");
     // Проверяем, есть ли ошибки
+  
     if ($result2)
     {
-      $_SESSION['login']=$login; 
-      $_SESSION['idUser']=$idUser;
-      $_SESSION['name'] = $name;
+      $result = $conn->query("SELECT * FROM Users WHERE login = {$login}");
+      $row = $result->fetch_assoc();
+      $_SESSION['login']=$row['login']; 
+      $_SESSION['idUser']=$row['idUser'];
+      $_SESSION['name'] = $row['name'];
       exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
     }
  else {
