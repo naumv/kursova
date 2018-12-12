@@ -62,7 +62,7 @@
         <div class="main_part">
             <aside class="aside_left">
                 <section>
-                  <?php require '.scripts/left_aside.php'; ?>
+                  <?php require './scripts/left_aside.php'; ?>
                 </section>
                 <section>
                     <h2> MAdagaskar</h2>
