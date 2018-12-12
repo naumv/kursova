@@ -1,6 +1,6 @@
 <?php
 echo <<<HERE
-<form action=".scripts/test_reg.php" method="post">
+<form action="./scripts/test_reg.php" method="post">
     <p>
         <label>Ваш логін:<br></label>
         <input name="login" type="text" size="15" maxlength="15">
@@ -14,7 +14,7 @@ echo <<<HERE
     </p>
 </form>
     <p>
-    <a href="reg.php">Зареєструватись</a>
+    <a href="./scripts/reg.php">Зареєструватись</a>
     <p> 
 HERE;
 ?>
