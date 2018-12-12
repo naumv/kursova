@@ -16,6 +16,9 @@ require 'connect.php';
                 echo "<li><a href=".$row[url].">".$row["name"]."</a>".$row['duration']." ".$row['rating']."</li>\n";
             }
         }
+        else{
+            echo "<p>У Вас відсутні додані відео</p>";
+        }
         $conn->close();
     
 
