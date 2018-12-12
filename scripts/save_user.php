@@ -1,4 +1,5 @@
 <?php
+   session_start();
     if (isset($_POST['login'])) { 
         $login = $_POST['login']; 
         if ($login == '') { unset($login);} 
@@ -41,7 +42,10 @@
     // Проверяем, есть ли ошибки
     if ($result2)
     {
-    echo "Вы успешно зарегистрированы! Теперь вы можете зайти на сайт. <a href='../index.php'>Главная страница</a>";
+      $_SESSION['login']=$login; 
+      $_SESSION['idUser']=$idUser;
+      $_SESSION['name'] = $name;
+      exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
     }
  else {
     echo "Ошибка! Вы не зарегистрированы.";

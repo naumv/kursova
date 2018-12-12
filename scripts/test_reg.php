@@ -37,7 +37,7 @@ $row = $result->fetch_assoc();
     $_SESSION['login']=$row['login']; 
     $_SESSION['idUser']=$row['idUser'];
     $_SESSION['name'] = $row['name'];//эти данные очень часто используются, вот их и будет "носить с собой" вошедший пользователь
-    echo "Вы успешно вошли на сайт! <a href='../index.php'>Главная страница</a>";
+    exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
     }
  else {
     //если пароли не сошлись
