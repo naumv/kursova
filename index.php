@@ -64,11 +64,11 @@
                 <section>
                   <?php require './scripts/left_aside.php'; ?>
                 </section>
-                <!--<section>
+                <section>
                     <h2> MAdagaskar</h2>
                     <img src='image/madagaskar.png' alt='Мадагаскар 3'>
                     <p> Tut text pro madagascar (no)</p>
-                </section>-->
+                </section>
             </aside>
 
 
