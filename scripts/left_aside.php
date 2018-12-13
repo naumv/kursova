@@ -32,7 +32,7 @@ HERE;
         echo <<<HERE
         </form>
         <p>
-            <a href="./scripts/in_form.php">Зареєструватись</a>
+            <a href="./scripts/in_form.php">Ввійти</a>
         <p> 
 HERE;
 
