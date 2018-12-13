@@ -2,16 +2,26 @@
    session_start();
     if (isset($_POST['login'])) { 
         $login = $_POST['login']; 
-        if ($login == '') { unset($login);} 
+        
     } //заносим введенный пользователем логин в переменную $login, если он пустой, то уничтожаем переменную
     if (isset($_POST['password'])) { 
         $password=$_POST['password']; 
-        if ($password =='') { unset($password);} 
+        
     }
     if (isset($_POST['name'])) { 
         $name = $_POST['name']; 
         if ($name == '') { $name = 'Користувач';} 
     } 
+    if (isset($_POST['password_two'])) { 
+      $password_two=$_POST['password_two']; 
+      if ($password_two =='') { unset($password_two);} 
+  }
+  $login = trim($login);
+  $password = trim($password);
+  $name = trim($name);
+  $password_two = trim($password_two);
+  if ($login == '') { unset($login);} 
+  if ($password =='') { unset($password);} 
     //заносим введенный пользователем пароль в переменную $password, если он пустой, то уничтожаем переменную
     if (empty($login) or empty($password)) //если пользователь не ввел логин или пароль, то выдаем ошибку и останавливаем скрипт
     {
@@ -34,9 +44,7 @@
       exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
     }
  //удаляем лишние пробелы
-    $login = trim($login);
-    $password = trim($password);
-    $name = trim($name);
+
     $password = md5($password);
  // подключаемся к базе
     include ("connect.php");// файл bd.php должен быть в той же папке, что и все остальные, если это не так, то просто измените путь 
