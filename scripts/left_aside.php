@@ -3,7 +3,7 @@
      if($_SESSION['registration'])
      {
         echo <<<HERE
-        <form action="save_user.php" method="post">
+        <form action="./scripts/save_user.php" method="post">
         <p>
             <label>Ваш логін:<br></label>
             <input name="login" type="text" size="15" maxlength="15">
