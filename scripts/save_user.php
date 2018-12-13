@@ -15,7 +15,9 @@
     //заносим введенный пользователем пароль в переменную $password, если он пустой, то уничтожаем переменную
     if (empty($login) or empty($password)) //если пользователь не ввел логин или пароль, то выдаем ошибку и останавливаем скрипт
     {
-    exit ("Вы ввели не всю информацию, вернитесь назад и заполните все поля!");
+      $_SESSION['error'] = "Будь ласка, заповніть всі поля";
+      exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
+
     }
     //если логин и пароль введены, то обрабатываем их, чтобы теги и скрипты не работали, мало ли что люди могут ввести
     $login = stripslashes($login);
@@ -24,6 +26,13 @@
     $name = htmlspecialchars($name);
     $password = stripslashes($password);
     $password = htmlspecialchars($password);
+    $password_two = stripslashes($password_two);
+    $password_two = htmlspecialchars($password_two);
+    if ($password !== $password_two)
+    {
+      $_SESSION['error'] = "Ви ввели різні паролі";
+      exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
+    }
  //удаляем лишние пробелы
     $login = trim($login);
     $password = trim($password);
@@ -35,7 +44,9 @@
     $result = $conn->query("SELECT idUser FROM Users WHERE login='$login'");
     $row = $result->fetch_assoc();
     if (!empty($row['idUser'])) {
-    exit ("Извините, введённый вами логин уже зарегистрирован. Введите другой логин.");
+      $_SESSION['error'] = "Вибачте, логін {$login} вже зайнято, спробуйте інший.";
+      exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
+
     }
  // если такого нет, то сохраняем данные
     $result2 = $conn->query("INSERT INTO Users (login,passwordHash, name) VALUES('$login','$password', '$name')");
@@ -48,9 +59,11 @@
       $_SESSION['login']=$row['login']; 
       $_SESSION['idUser']=$row['idUser'];
       $_SESSION['name'] = $row['name'];
+      unset($_SESSION['error']);
       exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
     }
  else {
-    echo "Ошибка! Вы не зарегистрированы.";
+      $_SESSION['error'] = "Невідома помилка, Ви не зареєструвані.";
+      exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
     }
     ?>
