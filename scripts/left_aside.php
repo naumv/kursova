@@ -77,7 +77,7 @@ HERE;
     </form>
     <form autocomplete="on" class="log_out" action="/scripts/update_name.php">
         <input name="name" type="text" class="updete_name" size="15" maxlength="15">
-        <input type="submit" value="Змінити">
+        <input type="submit" value="Змінити ім'я">
     </form>
 HERE;
     if (!empty($_SESSION['error']))
