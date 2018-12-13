@@ -75,6 +75,16 @@ HERE;
     <form autocomplete="on" class="log_out" action="/scripts/exit.php">
         <input type="submit" value="Переглянути мої групи відео">
     </form>
+    <form autocomplete="on" class="log_out" action="/scripts/update_name.php">
+        <input name="name" type="text" class="updete_name" size="15" maxlength="15">
+        <input type="submit" value="Змінити">
+    </form>
+HERE;
+    if (!empty($_SESSION['error']))
+    {
+    echo "<p>{$_SESSION['error']}</p>";
+    }
+echo <<<HERE
     <form autocomplete="on" class="log_out" action="/scripts/exit.php">
         <input type="submit" value="Вийти">
     </form>

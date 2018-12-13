@@ -10,7 +10,7 @@
     }
     if (isset($_POST['name'])) { 
         $name = $_POST['name']; 
-        if ($name == '') { $name = 'Користувач';} 
+        
     } 
     if (isset($_POST['password_two'])) { 
       $password_two=$_POST['password_two']; 
@@ -22,6 +22,7 @@
   $password_two = trim($password_two);
   if ($login == '') { unset($login);} 
   if ($password =='') { unset($password);} 
+  if ($name == '') { $name = 'Користувач';} 
     //заносим введенный пользователем пароль в переменную $password, если он пустой, то уничтожаем переменную
     if (empty($login) or empty($password)) //если пользователь не ввел логин или пароль, то выдаем ошибку и останавливаем скрипт
     {
