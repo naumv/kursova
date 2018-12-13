@@ -24,8 +24,13 @@
         <p>
             <input type="submit" name="submit" value="Зареєструватись">
         </p>
-        </form>
 HERE;
+        if (!empty($_SESSION['error']))
+        {
+        echo "<p>{$_SESSION['error']}</p>";
+        }
+        echo "</form>";
+
      }
      else {
     echo <<<HERE
