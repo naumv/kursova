@@ -1,5 +1,5 @@
 <?php
-    require './scripts/connect.php';
+    require '/scripts/connect.php';
     $sql = "SELECT * FROM rand5";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {

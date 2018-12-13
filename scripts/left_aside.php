@@ -3,7 +3,7 @@
      if($_SESSION['registration'])
      {
         echo <<<HERE
-        <form action="./scripts/save_user.php" method="post">
+        <form action="/scripts/save_user.php" method="post">
         <p>
             <label>Ваш логін:<br></label>
             <input name="login" type="text" size="15" maxlength="15">
@@ -32,14 +32,14 @@ HERE;
         echo <<<HERE
         </form>
         <p>
-            <a href="./scripts/in_form.php">Ввійти</a>
+            <a href="/scripts/in_form.php">Ввійти</a>
         <p> 
 HERE;
 
      }
      else {
     echo <<<HERE
-    <form action="./scripts/test_reg.php" method="post">
+    <form action="/scripts/test_reg.php" method="post">
         <p>
             <label>Ваш логін:<br></label>
             <input name="login" type="text" size="15" maxlength="15">
@@ -59,7 +59,7 @@ HERE;
 echo <<<HERE
     </form>
     <p>
-        <a href="./scripts/reg_form.php">Зареєструватись</a>
+        <a href="/scripts/reg_form.php">Зареєструватись</a>
     <p> 
 HERE;
      }
@@ -69,13 +69,13 @@ HERE;
     <p>
         Ви ввійшли на сайт як {$_SESSION['name']}
     </p>
-    <form autocomplete="on" class="log_out" action="./scripts/exit.php">
+    <form autocomplete="on" class="log_out" action="/scripts/exit.php">
         <input type="submit" value="Переглянути мої відео">
     </form>
-    <form autocomplete="on" class="log_out" action="./scripts/exit.php">
+    <form autocomplete="on" class="log_out" action="/scripts/exit.php">
         <input type="submit" value="Переглянути мої групи відео">
     </form>
-    <form autocomplete="on" class="log_out" action="./scripts/exit.php">
+    <form autocomplete="on" class="log_out" action="/scripts/exit.php">
         <input type="submit" value="Вийти">
     </form>
 HERE;

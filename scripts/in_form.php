@@ -1,5 +1,5 @@
 <?php
    session_start();
    $_SESSION['registration'] = FALSE;
-   exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
+   exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=/index.php'></head></html>");
 ?>
