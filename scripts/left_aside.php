@@ -29,7 +29,12 @@ HERE;
         {
         echo "<p>{$_SESSION['error']}</p>";
         }
-        echo "</form>";
+        echo <<<HERE
+        </form>
+        <p>
+            <a href="./scripts/in_form.php">Зареєструватись</a>
+        <p> 
+    HERE;
 
      }
      else {
