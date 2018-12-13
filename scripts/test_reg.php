@@ -11,7 +11,7 @@ if (isset($_POST['login']))
     //заносим введенный пользователем пароль в переменную $password, если он пустой, то уничтожаем переменную
 if (empty($login) or empty($password)) //если пользователь не ввел логин или пароль, то выдаем ошибку и останавливаем скрипт
     {
-        $_SESSION['password_error'] = TRUE;
+        $_SESSION['error'] = "Будь ласка, заповніть всі поля";
         exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
     }
     //если логин и пароль введены,то обрабатываем их, чтобы теги и скрипты не работали, мало ли что люди могут ввести
@@ -30,7 +30,7 @@ $row = $result->fetch_assoc();
     if (empty($row['passwordHash']))
     {
     //если пользователя с введенным логином не существует
-    $_SESSION['password_error'] = TRUE;
+    $_SESSION['error'] = "Користувача {$login} не знайдено";
         exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
     }
     else {
@@ -41,11 +41,12 @@ $row = $result->fetch_assoc();
     $_SESSION['idUser']=$row['idUser'];
     $_SESSION['name'] = $row['name'];//эти данные очень часто используются, вот их и будет "носить с собой" вошедший пользователь
     exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
+    unset($_SESSION['error']);
     }
  else {
     //если пароли не сошлись
 
-    $_SESSION['password_error'] = TRUE;
+    $_SESSION['error'] = "Введено невірний пароль";
         exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
     }
     }
