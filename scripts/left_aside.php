@@ -49,7 +49,7 @@ HERE;
 echo <<<HERE
     </form>
     <p>
-        <a href="./scripts/save_user.php">Зареєструватись</a>
+        <a href="./scripts/reg_form.php">Зареєструватись</a>
     <p> 
 HERE;
      }
