@@ -40,8 +40,9 @@ $row = $result->fetch_assoc();
     $_SESSION['login']=$row['login']; 
     $_SESSION['id_user']=$row['id_user'];
     $_SESSION['name'] = $row['name'];//эти данные очень часто используются, вот их и будет "носить с собой" вошедший пользователь
-    exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=/index.php'></head></html>");
     unset($_SESSION['error']);
+    exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=/index.php'></head></html>");
+    
     }
  else {
     //если пароли не сошлись

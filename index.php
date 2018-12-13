@@ -27,7 +27,7 @@
             </div>
            <div class="forms">
                <?php 
-               if (empty($_SESSION['login']) or empty($_SESSION['idUser']))
+               if (empty($_SESSION['login']) or empty($_SESSION['id_user']))
                {
                // Если пусты, то мы не выводим ссылку
                echo '<form autocomplete="on" class="log_up" action="./scripts/reg.php" method="post" >';
