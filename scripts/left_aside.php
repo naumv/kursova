@@ -1,5 +1,5 @@
 <?php
- if (empty($_SESSION['login']) or empty($_SESSION['idUser'])){
+ if (empty($_SESSION['login']) or empty($_SESSION['id_user'])){
      if($_SESSION['registration'])
      {
         echo <<<HERE
