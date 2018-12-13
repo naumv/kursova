@@ -34,7 +34,7 @@ HERE;
         <p>
             <a href="./scripts/in_form.php">Зареєструватись</a>
         <p> 
-    HERE;
+HERE;
 
      }
      else {
