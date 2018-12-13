@@ -13,6 +13,10 @@
         <p>
             <input type="submit" name="submit" value="Войти">
         </p>
+HERE;
+    if ($_SESSION['password_error'])
+    echo '<p>Невірний логін або пароль</p>';
+echo <<<HERE
     </form>
     <p>
         <a href="./scripts/reg.php">Зареєструватись</a>
