@@ -11,7 +11,8 @@ if (isset($_POST['login']))
     //заносим введенный пользователем пароль в переменную $password, если он пустой, то уничтожаем переменную
 if (empty($login) or empty($password)) //если пользователь не ввел логин или пароль, то выдаем ошибку и останавливаем скрипт
     {
-    exit ("Вы ввели не всю информацию, вернитесь назад и заполните все поля!");
+        $_SESSION['password_error'] = TRUE;
+        exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
     }
     //если логин и пароль введены,то обрабатываем их, чтобы теги и скрипты не работали, мало ли что люди могут ввести
     $login = stripslashes($login);
@@ -29,7 +30,8 @@ $row = $result->fetch_assoc();
     if (empty($row['passwordHash']))
     {
     //если пользователя с введенным логином не существует
-    exit ("Извините, введённый вами login или пароль неверный.");
+    $_SESSION['password_error'] = TRUE;
+        exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
     }
     else {
     //если существует, то сверяем пароли
@@ -43,7 +45,8 @@ $row = $result->fetch_assoc();
  else {
     //если пароли не сошлись
 
-    exit ("Извините, введённый вами login или пароль неверный.");
+    $_SESSION['password_error'] = TRUE;
+        exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
     }
     }
     ?>
