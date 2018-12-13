@@ -27,7 +27,7 @@
     if (empty($login) or empty($password)) //если пользователь не ввел логин или пароль, то выдаем ошибку и останавливаем скрипт
     {
       $_SESSION['error'] = "Будь ласка, заповніть всі поля";
-      exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=/index.php'></head></html>");
+      exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
 
     }
     //если логин и пароль введены, то обрабатываем их, чтобы теги и скрипты не работали, мало ли что люди могут ввести
@@ -42,7 +42,7 @@
     if ($password != $password_two)
     {
       $_SESSION['error'] = "Ви ввели різні паролі";
-      exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=/index.php'></head></html>");
+      exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
     }
  //удаляем лишние пробелы
 
@@ -54,7 +54,7 @@
     $row = $result->fetch_assoc();
     if (!empty($row['id_user'])) {
       $_SESSION['error'] = "Вибачте, логін {$login} вже зайнято, спробуйте інший.";
-      exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=/index.php'></head></html>");
+      exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
 
     }
  // если такого нет, то сохраняем данные
@@ -69,10 +69,10 @@
       $_SESSION['id_user']=$row['id_user'];
       $_SESSION['name'] = $row['name'];
       unset($_SESSION['error']);
-      exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=/index.php'></head></html>");
+      exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
     }
  else {
       $_SESSION['error'] = "Невідома помилка, Ви не зареєструвані.";
-      exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=/index.php'></head></html>");
+      exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
     }
     ?>

@@ -31,7 +31,7 @@ $row = $result->fetch_assoc();
     {
     //если пользователя с введенным логином не существует
     $_SESSION['error'] = "Користувача {$login} не знайдено";
-        exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=/index.php'></head></html>");
+        exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
     }
     else {
     //если существует, то сверяем пароли
@@ -39,16 +39,18 @@ $row = $result->fetch_assoc();
     //если пароли совпадают, то запускаем пользователю сессию! Можете его поздравить, он вошел!
     $_SESSION['login']=$row['login']; 
     $_SESSION['id_user']=$row['id_user'];
-    $_SESSION['name'] = $row['name'];//эти данные очень часто используются, вот их и будет "носить с собой" вошедший пользователь
+    $_SESSION['name'] = $row['name'];
+    $_SESSION['status'] = $row['status'];
+    //эти данные очень часто используются, вот их и будет "носить с собой" вошедший пользователь
     unset($_SESSION['error']);
-    exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=/index.php'></head></html>");
+    exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
     
     }
  else {
     //если пароли не сошлись
 
     $_SESSION['error'] = "Введено невірний пароль";
-        exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=/index.php'></head></html>");
+        exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
     }
     }
 ?>

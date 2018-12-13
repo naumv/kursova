@@ -84,6 +84,25 @@ HERE;
     {
     echo "<p>{$_SESSION['error']}</p>";
     }
+    if($_SESSION['status'] == 'a' or $_SESSION['status'] == 'm')
+    {
+    echo <<<HERE
+    <form autocomplete="on" class="create_group" action="/scripts/exit.php">
+        <input type="submit" value="Додати групу з відео">
+    </form>
+    <form autocomplete="on" class="create_video" action="/scripts/exit.php">
+    <input type="submit" value="Додати нове відео">
+</form>
+HERE;
+    }
+    if($_SESSION['status'] == 'a')
+    {
+    echo <<<HERE
+    <form autocomplete="on" class="manage_users" action="/scripts/exit.php">
+        <input type="submit" value="Переглянути список користувачів">
+    </form>
+HERE;
+    }
 echo <<<HERE
     <form autocomplete="on" class="log_out" action="/scripts/exit.php">
         <input type="submit" value="Вийти">
