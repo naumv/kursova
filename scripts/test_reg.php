@@ -22,7 +22,7 @@ $password = stripslashes($password);
 //удаляем лишние пробелы
     $login = trim($login);
     $password = trim($password);
-    $password = md5($password);
+    $password = sha1($password);
 // подключаемся к базе
     include ("connect.php");// файл bd.php должен быть в той же папке, что и все остальные, если это не так, то просто измените путь 
 $result = $conn->query("SELECT * FROM Users WHERE login='$login'"); //извлекаем из базы все данные о пользователе с введенным логином
