@@ -50,23 +50,23 @@
  // подключаемся к базе
     include ("connect.php");// файл bd.php должен быть в той же папке, что и все остальные, если это не так, то просто измените путь 
  // проверка на существование пользователя с таким же логином
-    $result = $conn->query("SELECT idUser FROM Users WHERE login='$login'");
+    $result = $conn->query("SELECT id_user FROM users WHERE login='$login'");
     $row = $result->fetch_assoc();
-    if (!empty($row['idUser'])) {
+    if (!empty($row['id_user'])) {
       $_SESSION['error'] = "Вибачте, логін {$login} вже зайнято, спробуйте інший.";
       exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=/index.php'></head></html>");
 
     }
  // если такого нет, то сохраняем данные
-    $result2 = $conn->query("INSERT INTO Users (login,passwordHash, name) VALUES('$login','$password', '$name')");
+    $result2 = $conn->query("INSERT INTO users (login,password_hash, name) VALUES('$login','$password', '$name')");
     // Проверяем, есть ли ошибки
   
     if ($result2)
     {
-      $result = $conn->query("SELECT * FROM Users WHERE login = {$login}");
+      $result = $conn->query("SELECT * FROM users WHERE login = {$login}");
       $row = $result->fetch_assoc();
       $_SESSION['login']=$row['login']; 
-      $_SESSION['idUser']=$row['idUser'];
+      $_SESSION['id_user']=$row['id_user'];
       $_SESSION['name'] = $row['name'];
       unset($_SESSION['error']);
       exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=/index.php'></head></html>");

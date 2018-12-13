@@ -25,9 +25,9 @@ $password = stripslashes($password);
     $password = sha1($password);
 // подключаемся к базе
     include ("connect.php");// файл bd.php должен быть в той же папке, что и все остальные, если это не так, то просто измените путь 
-$result = $conn->query("SELECT * FROM Users WHERE login='$login'"); //извлекаем из базы все данные о пользователе с введенным логином
+$result = $conn->query("SELECT * FROM users WHERE login='$login'"); //извлекаем из базы все данные о пользователе с введенным логином
 $row = $result->fetch_assoc();
-    if (empty($row['passwordHash']))
+    if (empty($row['password_hash']))
     {
     //если пользователя с введенным логином не существует
     $_SESSION['error'] = "Користувача {$login} не знайдено";
@@ -35,10 +35,10 @@ $row = $result->fetch_assoc();
     }
     else {
     //если существует, то сверяем пароли
-    if ($row['passwordHash']==$password) {
+    if ($row['password_hash']==$password) {
     //если пароли совпадают, то запускаем пользователю сессию! Можете его поздравить, он вошел!
     $_SESSION['login']=$row['login']; 
-    $_SESSION['idUser']=$row['idUser'];
+    $_SESSION['id_user']=$row['id_user'];
     $_SESSION['name'] = $row['name'];//эти данные очень часто используются, вот их и будет "носить с собой" вошедший пользователь
     exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=/index.php'></head></html>");
     unset($_SESSION['error']);
