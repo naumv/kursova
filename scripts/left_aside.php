@@ -75,7 +75,7 @@ HERE;
     <form autocomplete="on" class="log_out" action="/scripts/exit.php">
         <input type="submit" value="Переглянути мої групи відео">
     </form>
-    <form autocomplete="on" class="log_out" action="/scripts/update_name.php">
+    <form autocomplete="on" class="log_out" action="/scripts/update_name.php" method="post">
         <input name="name" type="text" class="updete_name" size="15" maxlength="15">
         <input type="submit" value="Змінити ім'я">
     </form>
