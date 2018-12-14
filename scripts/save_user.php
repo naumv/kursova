@@ -54,12 +54,14 @@
  // проверка на существование пользователя с таким же логином
     //$result = $conn->query("SELECT id_user FROM users WHERE login='$login'");
     $sql = "SELECT id_user FROM users WHERE login= ? ";
-    $result = $conn->prepare($sql);
-    $result->bind_param("s", $login);
-    $result = $result->execute();
-    $result = $result->get_result();
-    echo $result;
-    if (isset($row['id_user'])) {
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $login);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+    if ($row) {
+      echo 4;
+       echo 5;
       $_SESSION['error'] = "Вибачте, логін {$login} вже зайнято, спробуйте інший.";
       echo 3;
       exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
@@ -72,14 +74,15 @@
     $sql = "INSERT INTO users (login,password_hash, name) VALUES(?,?,?)";
     $result2 = $conn->prepare($sql);
     $result2->bind_param("sss", $login,$password, $name);
-    $result2 = $result2->execute(); 
+    $result2->execute(); 
+    echo 3;
     if ($result2)
     {
       //$result = $conn->query("SELECT * FROM users WHERE login = {$login}");
       $sql = "SELECT * FROM users WHERE login = ?";
       $result = $conn->prepare($sql);
       $result->bind_param("s", $login);
-      $result = $result->execute(); 
+      $result->execute(); 
       $result = $result->get_result();
       $row = $result->fetch_assoc();
       $_SESSION['login']=$row['login']; 
