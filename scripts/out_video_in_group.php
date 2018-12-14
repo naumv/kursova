@@ -2,7 +2,12 @@
 session_start();
 require 'connect.php';
         echo "<h2>Відео в групі</h2>";
-$sql = "SELECT v.name as name, v.url as url, v.id_video as id_video  FROM  videos v join video_has_group v_h_g using(id_video) where v_h_g.id_group = {$_SESSION['id_group']}";
+$sql = "SELECT v.name as name, v.url as url, v.id_video as id_video  
+FROM  videos v join video_has_group v_h_g using(id_video) 
+where v_h_g.id_group = ?";
+$result = $conn->prepare($sql);
+$result->bind_param("i", $_SESSION['id_group']);
+$result = $result->execute(); 
 $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             // output data of each row
