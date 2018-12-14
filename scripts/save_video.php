@@ -42,7 +42,7 @@
       exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
     }
  else {
-      $_SESSION['msg'] = "Невідома помилка, Ви не зареєструвані.";
+      $_SESSION['msg'] = "Невідома помилка, відео не додане.";
       exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
     }
     ?>
