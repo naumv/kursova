@@ -12,7 +12,7 @@ $result = $conn->query($sql);
                     <form action="./scripts/video_in_group.php" method="post">
                         <button name="id_group" type="submit" value="{$row['id_group']}">{$row['name']}</button>
                 </form>
-                </li>
+                </li> 
 HERE;
             }
         }
