@@ -11,6 +11,9 @@ require 'connect.php';
                     <form action="./scripts/video_in_group.php" method="post">
                         <button name="id_group" type="submit" value="{$row['id_group']}">{$row['name']}</button>
                 </form>
+                <form action="./scripts/add_group_to_me.php" method="post">
+                        <button name="id_group" type="submit" value="{$row['id_group']}"> Додати групу</button>
+                </form>
                 </li> 
 HERE;
             }
