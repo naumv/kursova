@@ -62,9 +62,12 @@
 
     }
  // если такого нет, то сохраняем данные
-    $result2 = $conn->query("INSERT INTO users (login,password_hash, name) VALUES('$login','$password', '$name')");
+    //$result2 = $conn->query("INSERT INTO users (login,password_hash, name) VALUES('$login','$password', '$name')");
     // Проверяем, есть ли ошибки
-  
+    $sql = "INSERT INTO users (login,password_hash, name) VALUES(?,?,?)";
+    $result2 = $conn->prepare($sql);
+    $result2->bind_param("sss", $login,$password, $name);
+    $result2 = $result2->execute(); 
     if ($result2)
     {
       $result = $conn->query("SELECT * FROM users WHERE login = {$login}");
