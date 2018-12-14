@@ -5,6 +5,6 @@
     }
     else
     {
-        require "rand50.php";
+        require "out_rand50.php";
     }
 ?>
