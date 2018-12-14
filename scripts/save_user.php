@@ -16,6 +16,7 @@
       $password_two=$_POST['password_two']; 
       if ($password_two =='') { unset($password_two);} 
   }
+  echo 1;
   $login = trim($login);
   $password = trim($password);
   $name = trim($name);
@@ -45,22 +46,26 @@
       exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
     }
  //удаляем лишние пробелы
-
+ echo 2;
     $password = sha1($password);
+    echo 3;
  // подключаемся к базе
     include ("connect.php");// файл bd.php должен быть в той же папке, что и все остальные, если это не так, то просто измените путь 
  // проверка на существование пользователя с таким же логином
     //$result = $conn->query("SELECT id_user FROM users WHERE login='$login'");
-    $sql = "SELECT id_user FROM users WHERE login=?";
+    $sql = "SELECT id_user FROM users WHERE login= ? ";
     $result = $conn->prepare($sql);
     $result->bind_param("s", $login);
-    $result = $result->execute(); 
-    $row = $result->fetch_assoc();
+    $result = $result->execute();
+    $result = $result->get_result();
+    echo $result;
     if (isset($row['id_user'])) {
       $_SESSION['error'] = "Вибачте, логін {$login} вже зайнято, спробуйте інший.";
+      echo 3;
       exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
 
     }
+    echo 3;
  // если такого нет, то сохраняем данные
     //$result2 = $conn->query("INSERT INTO users (login,password_hash, name) VALUES('$login','$password', '$name')");
     // Проверяем, есть ли ошибки
@@ -70,7 +75,12 @@
     $result2 = $result2->execute(); 
     if ($result2)
     {
-      $result = $conn->query("SELECT * FROM users WHERE login = {$login}");
+      //$result = $conn->query("SELECT * FROM users WHERE login = {$login}");
+      $sql = "SELECT * FROM users WHERE login = ?";
+      $result = $conn->prepare($sql);
+      $result->bind_param("s", $login);
+      $result = $result->execute(); 
+      $result = $result->get_result();
       $row = $result->fetch_assoc();
       $_SESSION['login']=$row['login']; 
       $_SESSION['id_user']=$row['id_user'];
