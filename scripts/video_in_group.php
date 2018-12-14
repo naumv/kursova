@@ -1,0 +1,12 @@
+<?php
+    session_start();
+    $_SESSION['output'] = "out_video_in_group.php";
+    if (isset($_POST['id_group'])) { 
+        $_SESSION['id_group'] = $_POST['id_group'];
+    } 
+    else
+    {
+        $_SESSION['msg'] = "Переданий невірний ідентифікатор групи";
+    }
+    exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
+?>

@@ -52,7 +52,7 @@
  // проверка на существование пользователя с таким же логином
     $result = $conn->query("SELECT id_user FROM users WHERE login='$login'");
     $row = $result->fetch_assoc();
-    if (!empty($row['id_user'])) {
+    if (isset($row['id_user'])) {
       $_SESSION['error'] = "Вибачте, логін {$login} вже зайнято, спробуйте інший.";
       exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
 
