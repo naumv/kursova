@@ -39,6 +39,7 @@
  // если такого нет, то сохраняем данные
     //$result2 = $conn->query("INSERT INTO videos (name, url) VALUES('$name', '$url')");
     $sql2 = "INSERT INTO videos (name, url) VALUES(?, ?)";
+    $result2 = $conn->prepare($sql2);
     $result2->bind_param("ss",$name, $url);
     $result2 = $result2->execute(); 
     // Проверяем, есть ли ошибки

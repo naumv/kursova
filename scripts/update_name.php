@@ -13,7 +13,12 @@ if (empty($name))
     }
 else{
     require 'connect.php';
-    $result = $conn->query("CALL update_user_name({$_SESSION['id_user']}, '{$name}')");
+    $sql = "CALL update_user_name(?,?)";
+    //$result = $conn->query("CALL update_user_name({$_SESSION['id_user']}, '{$name}')");
+    $result = $conn->prepare($sql);
+    $result->bind_param("is", $_SESSION['id_user'], $name);
+    $result = $result->execute(); 
+    $row = $result->fetch_assoc();
     if(!$result)
      {
          $_SESSION['error'] = "Зміна імені не вдалася";
