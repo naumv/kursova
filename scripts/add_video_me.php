@@ -20,7 +20,7 @@
       exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
     }
  else {
-      $_SESSION['msg'] = $sql;//"Помилка при додаванні, можливо Ви вже додали це відео.";
+      $_SESSION['msg'] = "Помилка при додаванні, можливо Ви вже додали це відео.";
       exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
     }
     ?>
