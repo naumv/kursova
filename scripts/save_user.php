@@ -50,7 +50,11 @@
  // подключаемся к базе
     include ("connect.php");// файл bd.php должен быть в той же папке, что и все остальные, если это не так, то просто измените путь 
  // проверка на существование пользователя с таким же логином
-    $result = $conn->query("SELECT id_user FROM users WHERE login='$login'");
+    //$result = $conn->query("SELECT id_user FROM users WHERE login='$login'");
+    $sql = "SELECT id_user FROM users WHERE login=?";
+    $result = $conn->prepare($sql);
+    $result->bind_param("s", $login);
+    $result = $result->execute(); 
     $row = $result->fetch_assoc();
     if (isset($row['id_user'])) {
       $_SESSION['error'] = "Вибачте, логін {$login} вже зайнято, спробуйте інший.";

@@ -19,7 +19,11 @@
     // подключаемся к базе
     include ("connect.php");// файл bd.php должен быть в той же папке, что и все остальные, если это не так, то просто измените путь 
  // проверка на существование пользователя с таким же логином
-    $result = $conn->query("SELECT id_group FROM groups WHERE name='$name'");
+ $sql = "SELECT id_group FROM groups WHERE name=?";
+ $result = $conn->prepare($sql);
+$result->bind_param("s", $name);
+$result = $result->execute(); 
+    //$result = $conn->query("SELECT id_group FROM groups WHERE name='$name'");
     $row = $result->fetch_assoc();
     if (!empty($row['id_group'])) {
       $_SESSION['msg'] = "Вибачте, група з таким ім'ям вже є на сайті";
@@ -27,7 +31,11 @@
 
     }
  // если такого нет, то сохраняем данные
-    $result2 = $conn->query("INSERT INTO groups (name) VALUES('$name')");
+ $sql2 = "INSERT INTO groups (name) VALUES(?)";
+ $result2 = $conn->prepare($sql);
+ $result2->bind_param("s", $name);
+ $result2 = $result2->execute(); 
+    //$result2 = $conn->query("INSERT INTO groups (name) VALUES('$name')");
     // Проверяем, есть ли ошибки
   
     if ($result2)

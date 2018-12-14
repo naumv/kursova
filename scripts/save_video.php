@@ -25,15 +25,22 @@
     // подключаемся к базе
     include ("connect.php");// файл bd.php должен быть в той же папке, что и все остальные, если это не так, то просто измените путь 
  // проверка на существование пользователя с таким же логином
-    $result = $conn->query("SELECT id_video FROM videos WHERE name='$name' AND url = '$url'");
+    //$result = $conn->query("SELECT id_video FROM videos WHERE name='$name' AND url = '$url'");
+    $sql = "SELECT id_video FROM videos WHERE name= ? AND url = ?";
+    $result = $conn->prepare($sql);
+    $result->bind_param("ss",$name, $url);
+    $result = $result->execute(); 
     $row = $result->fetch_assoc();
     if (!empty($row['id_video'])) {
-      $_SESSION['msg'] = "Вибачте, дане відео вже додано на сайт.";
+      $_SESSION['msg'] = "Вибачте, дане відео вже додане на сайт.";
       exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
 
     }
  // если такого нет, то сохраняем данные
-    $result2 = $conn->query("INSERT INTO videos (name, url) VALUES('$name', '$url')");
+    //$result2 = $conn->query("INSERT INTO videos (name, url) VALUES('$name', '$url')");
+    $sql2 = "INSERT INTO videos (name, url) VALUES(?, ?)";
+    $result2->bind_param("ss",$name, $url);
+    $result2 = $result2->execute(); 
     // Проверяем, есть ли ошибки
   
     if ($result2)
