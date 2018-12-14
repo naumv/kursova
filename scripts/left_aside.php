@@ -59,7 +59,7 @@ HERE;
 echo <<<HERE
     </form>
     <p>
-        <a href="/scripts/reg_form.php">Зареєструватись</a>
+        <a href="./scripts/reg_form.php">Зареєструватись</a>
     <p> 
 HERE;
      }
@@ -69,10 +69,10 @@ HERE;
     <p>
         Ви ввійшли на сайт як {$_SESSION['name']}
     </p>
-    <form autocomplete="on" class="log_out" action="/scripts/exit.php">
+    <form autocomplete="on" class="log_out" action="/scripts/my_videos.php">
         <input type="submit" value="Переглянути мої відео">
     </form>
-    <form autocomplete="on" class="log_out" action="/scripts/exit.php">
+    <form autocomplete="on" class="log_out" action="/scripts/my_groups.php">
         <input type="submit" value="Переглянути мої групи відео">
     </form>
     <form autocomplete="on" class="log_out" action="/scripts/update_name.php" method="post">
@@ -87,10 +87,10 @@ HERE;
     if($_SESSION['status'] == 'a' or $_SESSION['status'] == 'm')
     {
     echo <<<HERE
-    <form autocomplete="on" class="create_group" action="/scripts/exit.php">
+    <form autocomplete="on" class="create_group" action="./scripts/create_group.php">
         <input type="submit" value="Додати групу з відео">
     </form>
-    <form autocomplete="on" class="create_video" action="/scripts/exit.php">
+    <form autocomplete="on" class="create_video" action="./scripts/create_video.php">
     <input type="submit" value="Додати нове відео">
 </form>
 HERE;
@@ -98,13 +98,13 @@ HERE;
     if($_SESSION['status'] == 'a')
     {
     echo <<<HERE
-    <form autocomplete="on" class="manage_users" action="/scripts/exit.php">
+    <form autocomplete="on" class="manage_users" action="./scripts/manage_users.php">
         <input type="submit" value="Переглянути список користувачів">
     </form>
 HERE;
     }
 echo <<<HERE
-    <form autocomplete="on" class="log_out" action="/scripts/exit.php">
+    <form autocomplete="on" class="log_out" action="./scripts/exit.php">
         <input type="submit" value="Вийти">
     </form>
 HERE;

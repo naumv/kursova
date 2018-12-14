@@ -73,10 +73,10 @@
             <article class="article1">
                 <!--<h2> Що йде в кінотеатрах</h2>-->
                 <ol>
-                <?php require './scripts/my_video.php'; ?>
+                <?php require './scripts/output.php'; ?>
                 </ol>
             </article >
-            <article class="article2">
+            <!--<article class="article2">
                 <h2>Poglat hladachiv</h2>
                 <p> Tut text pro ce vse</p>
             </article>
@@ -100,7 +100,7 @@
                     </main>
                 </div>
             </article>
-
+-->
             <aside class = aside_right>
                 <div>
                     <h2>П'ять найпопулярніших фільмів</h2>
