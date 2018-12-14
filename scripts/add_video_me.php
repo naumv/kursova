@@ -12,8 +12,11 @@
     }
  // подключаемся к базе
     include ("connect.php");
-   $sql = "INSERT INTO user_has_video (id_user, id_video) VALUES({$_SESSION['id_user']},{$id_video})";
-    $result = $conn->query($sql);
+   $sql = "INSERT INTO user_has_video (id_user, id_video) VALUES(?,?)";
+   $result = $conn->prepare($sql);
+   $result->bind_param("ii", $_SESSION['id_user'], $id_video);
+   $result = $result->execute(); 
+   //$result = $conn->query($sql);
     if ($result)
     {
       $_SESSION['msg'] = "Відео успішно додане";

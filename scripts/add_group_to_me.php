@@ -12,8 +12,11 @@
     }
  // подключаемся к базе
     include ("connect.php");
-   $sql = "INSERT INTO user_has_group (id_user, id_group) VALUES({$_SESSION['id_user']},{$id_group})";
-    $result = $conn->query($sql);
+   $sql = "INSERT INTO user_has_group (id_user, id_group) VALUES(?,?)";
+   $result = $conn->prepare($sql);
+   $result->bind_param("ii", $_SESSION['id_user'], $id_group);
+   $result = $result->execute();
+  // $result = $conn->query($sql);
     if ($result)
     {
       $_SESSION['msg'] = "Група успішно додана";
