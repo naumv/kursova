@@ -7,8 +7,11 @@
       $status = $_POST['status'];
   } 
 require 'connect.php';
-$sql = "CALL update_user_has_video_status({$_SESSION['id_user']},{$id_video}, \"{$status}\")";
-$result = $conn->query($sql);
+$sql = "CALL update_user_has_video_status(?,?,?)";
+$result = $conn->prepare($sql);
+$result->bind_param("iis", $_SESSION['id_user'], $id_video, $status);
+$result = $result->execute(); 
+//$result = $conn->query($sql);
     // Проверяем, есть ли ошибки
     if ($result)
     {

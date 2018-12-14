@@ -7,8 +7,11 @@
       $status = $_POST['status'];
   } 
 require 'connect.php';
-$sql = "CALL update_user_status({$id_user}, \"{$status}\")";
-$result = $conn->query($sql);
+$sql = "CALL update_user_status(?,?)";
+$result = $conn->prepare($sql);
+$result->bind_param("is", $id_user,$status);
+$result = $result->execute(); 
+//$result = $conn->query($sql);
     // Проверяем, есть ли ошибки
     if ($result)
     {
