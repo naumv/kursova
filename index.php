@@ -25,9 +25,9 @@
                     </nav>
                 </div>
             </div>
-           <div class="forms">
+           <!--<div class="forms">
                <?php 
-               if (empty($_SESSION['login']) or empty($_SESSION['id_user']))
+               /*if (empty($_SESSION['login']) or empty($_SESSION['id_user']))
                {
                // Если пусты, то мы не выводим ссылку
                echo '<form autocomplete="on" class="log_up" action="./scripts/reg.php" method="post" >';
@@ -46,12 +46,12 @@
                 </form>';
                }
                
-                ?>
+                */?>
                 <form name='search' method='get' autocomplete="on" class="search">
                     <input type="search" aria-label="Пошук">
                     <input type="submit" value="Пошук">
                 </form>
-            </div>
+            </div>-->
 
             <h2>Рейтинг очікування</h2>
             <figure>
