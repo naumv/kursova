@@ -1,6 +1,6 @@
 <?php
 require 'connect.php';
-        echo "<h2>Випадкові відео</h2>";
+        echo "<h2>Останні додані відео</h2>";
         $sql = "SELECT * FROM video50";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
