@@ -49,7 +49,7 @@ HERE;
             <input name="password" type="password" size="15" maxlength="15">
         </p>
         <p>
-            <input type="submit" name="submit" value="Войти">
+            <input type="submit" name="submit" value="Ввійти">
         </p>
 HERE;
     if (!empty($_SESSION['error']))

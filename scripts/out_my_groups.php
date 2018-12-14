@@ -16,5 +16,8 @@ $result = $conn->query($sql);
 HERE;
             }
         }
+        else{
+            echo "<p>У Вас відсутні додані групи</p>";
+        }
         $conn->close();
 ?>

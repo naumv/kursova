@@ -38,7 +38,7 @@ HERE;
                     echo '>deleted</option>';
                   echo <<<HERE
                   </select>
-                  <button name="id_user" type="submit" value="{$row['id_user']}">Submit</button>
+                  <button name="id_user" type="submit" value="{$row['id_user']}">Змінити статус</button>
                  </form>
                     </td>
                 <tr>\n
