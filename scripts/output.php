@@ -6,7 +6,7 @@
         unset($_SESSION['msg']);
     }
     if(isset($_SESSION['output'])){
-    require "{$_SESSION['output']}";
+    include "{$_SESSION['output']}";
     }
     else
     {
