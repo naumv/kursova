@@ -16,5 +16,8 @@ $result = $conn->query($sql);
 HERE;
             }
         }
+        else{
+                echo "<p>В даній групі відсутні відео</p>";
+        }
         $conn->close();
 ?>
