@@ -15,7 +15,6 @@ if (empty($name))
     {
       $_SESSION['error'] = "Ви ввели некоректне ім'я";
       exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=/index.php'></head></html>");
-
     }
 else{
     require 'connect.php';
@@ -24,8 +23,7 @@ else{
     $result = $conn->prepare($sql);
     $result->bind_param("is", $_SESSION['id_user'], $name);
     $result->execute(); 
-    $result = $result->get_result();
-    $row = $result->fetch_assoc();
+    //$result = $result->get_result();
     if(!$result)
      {
          $_SESSION['error'] = "Зміна імені не вдалася";
