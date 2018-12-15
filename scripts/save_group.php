@@ -39,7 +39,7 @@ $result = $result->get_result();
     }
  // если такого нет, то сохраняем данные
  $sql2 = "INSERT INTO groups (name) VALUES(?)";
- $result2 = $conn->prepare($sql);
+ $result2 = $conn->prepare($sql2);
  $result2->bind_param("s", $name);
  $result2 = $result2->execute(); 
     //$result2 = $conn->query("INSERT INTO groups (name) VALUES('$name')");
