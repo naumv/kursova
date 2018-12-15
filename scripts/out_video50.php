@@ -32,7 +32,7 @@ if (isset( $_SESSION['page'])) {
         }
                 while($row = $result->fetch_assoc()) {
                 echo <<<HERE
-                <li><a href={$row[url]}>{$row["name"]}</a>
+                <li><a href={$row[url]} target='_blank'>{$row["name"]} </a>
                 <form action="./scripts/add_video_me.php" method="post">
                         <button name="id_video" type="submit" value="{$row['id_video']}">Зберегти</button>
                 </form>

@@ -21,7 +21,7 @@ $result = $result->get_result();
             // output data of each row
             while($row = $result->fetch_assoc()) {
                 echo <<<HERE
-                <li><a href={$row[url]}>{$row["name"]}</a> 
+                <li><a href={$row[url]} >{$row["name"]}</a> 
                     <form action="./scripts/edite_video_status.php" method="post">
                         <select name="status">
 HERE;
