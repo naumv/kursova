@@ -20,7 +20,6 @@ if (isset( $_SESSION['page'])) {
         $result2 = $conn->query($sql2);
         $row2 = $result2->fetch_assoc();
         $_SESSION['max_page'] = ((int) ($row2['count'] / 50)) - ((($row2['count'] % 50) == 0) ? 1 : 0 ); 
-        echo $_SESSION['max_page'];
         //$row2['name'] = "Name";
         if ($result->num_rows > 0) {
             // output data of each row

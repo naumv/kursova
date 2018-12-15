@@ -83,6 +83,8 @@ HERE;
     if (!empty($_SESSION['error']))
     {
     echo "<p>{$_SESSION['error']}</p>";
+    unset($_SESSION['error']);
+
     }
     if($_SESSION['status'] == 'a' or $_SESSION['status'] == 'm')
     {
