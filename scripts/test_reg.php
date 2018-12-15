@@ -28,7 +28,8 @@ $password = stripslashes($password);
     $sql = "SELECT * FROM users WHERE login= ?";
     $result = $conn->prepare($sql);
     $result->bind_param("s",$login);
-    $result = $result->execute(); 
+    $result->execute(); 
+    $result = $result->get_result();
     $row = $result->fetch_assoc();
     if (empty($row['password_hash']) or $row['status'] == 'd')
     {

@@ -17,7 +17,8 @@ else{
     //$result = $conn->query("CALL update_user_name({$_SESSION['id_user']}, '{$name}')");
     $result = $conn->prepare($sql);
     $result->bind_param("is", $_SESSION['id_user'], $name);
-    $result = $result->execute(); 
+    $result->execute(); 
+    $result = $result->get_result();
     $row = $result->fetch_assoc();
     if(!$result)
      {

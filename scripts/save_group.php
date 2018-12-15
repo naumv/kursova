@@ -22,7 +22,8 @@
  $sql = "SELECT id_group FROM groups WHERE name=?";
  $result = $conn->prepare($sql);
 $result->bind_param("s", $name);
-$result = $result->execute(); 
+$result->execute(); 
+$result = $result->get_result();
     //$result = $conn->query("SELECT id_group FROM groups WHERE name='$name'");
     $row = $result->fetch_assoc();
     if (!empty($row['id_group'])) {

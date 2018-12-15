@@ -29,7 +29,8 @@
     $sql = "SELECT id_video FROM videos WHERE name= ? AND url = ?";
     $result = $conn->prepare($sql);
     $result->bind_param("ss",$name, $url);
-    $result = $result->execute(); 
+    $result->execute(); 
+    $result = $result->get_result();
     $row = $result->fetch_assoc();
     if (!empty($row['id_video'])) {
       $_SESSION['msg'] = "Вибачте, дане відео вже додане на сайт.";
