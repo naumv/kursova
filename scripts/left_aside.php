@@ -14,12 +14,12 @@
         </p>
         <p>
             <label>Ваш пароль:<br></label>
-            <input name="password" type="password" size="15" maxlength="40">
+            <input name="password" type="password" pattern="^[A-Za-zА-Яа-я0-9,\.\(\)\-]{5,40}$" size="15" maxlength="40">
         </p>
 
         <p>
             <label>Ваш пароль ще раз:<br></label>
-            <input name="password_two" type="password" size="15" maxlength="40">
+            <input name="password_two" type="password" pattern="^[A-Za-zА-Яа-я0-9,\.\(\)\-]{5,40}$" size="15" maxlength="40">
         </p>
         <p>
             <input type="submit" name="submit" value="Зареєструватись">
@@ -46,7 +46,7 @@ HERE;
         </p>
         <p>
             <label>Ваш пароль:<br></label>
-            <input name="password" type="password" size="15" maxlength="40">
+            <input name="password" type="password" pattern="^[A-Za-zА-Яа-я0-9,\.\(\)\-]{5,40}$" size="15" maxlength="40">
         </p>
         <p>
             <input type="submit" name="submit" value="Ввійти">
