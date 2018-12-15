@@ -76,11 +76,12 @@
                 <?php require './scripts/output.php'; ?>
                 </ol>
             </article >
-            <!--<article class="article2">
-                <h2>Poglat hladachiv</h2>
-                <p> Tut text pro ce vse</p>
+            <article class="article2">
+            <?php require './scripts/out_page_select.php'; ?>
+               <!-- <h2>Poglat hladachiv</h2>
+                <p> Tut text pro ce vse</p>-->
             </article>
-            <article class="article3">
+            <!--<article class="article3">
                 <h2> Новини серіалів</h2>
                 <div> <img src='image/dictator.png' alt='Диктатор'>
                     <main>                               

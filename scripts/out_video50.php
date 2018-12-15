@@ -2,8 +2,25 @@
 require 'connect.php';
         echo "<h2>Останні додані відео</h2>";
 HERE;
-        $sql = "SELECT * FROM video50";
-        $result = $conn->query($sql);
+if (isset( $_SESSION['page'])) { 
+        $page = $_SESSION['page']; 
+    }
+    else
+    {
+            $page = 0;
+    }
+    $skip = $page * 50; 
+        $sql = "SELECT * FROM video50 LIMIT ?, 50";
+        //$result = $conn->query($sql);
+        $result = $conn->prepare($sql);
+        $result->bind_param("i", $skip);
+        $result->execute();    
+        $result = $result->get_result();
+        $sql2 = "SELECT count(*) as count from video50";
+        $result2 = $conn->query($sql2);
+        $row2 = $result2->fetch_assoc();
+        $_SESSION['max_page'] = ((int) ($row2['count'] / 50)) - ((($row2['count'] % 50) == 0) ? 1 : 0 ); 
+        echo $_SESSION['max_page'];
         //$row2['name'] = "Name";
         if ($result->num_rows > 0) {
             // output data of each row

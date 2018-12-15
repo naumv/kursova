@@ -39,7 +39,7 @@
     $password = htmlspecialchars($password);
     $password_two = stripslashes($password_two);
     $password_two = htmlspecialchars($password_two);
-    if ($password != $password_two)
+    if ($password !== $password_two)
     {
       $_SESSION['error'] = "Ви ввели різні паролі";
       exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
