@@ -12,7 +12,8 @@ require 'connect.php';
         WHERE id_user = ? order by id_video DESC LIMIT 50";
             $result = $conn->prepare($sql);
             $result->bind_param("i", $_SESSION['id_user']);
-            $result = $result->execute(); 
+            $result->execute(); 
+            $result = $result->get_result(); 
     }
         if ($result->num_rows > 0) {
             // output data of each row

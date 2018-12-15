@@ -6,7 +6,8 @@ $sql = "SELECT v.name as name , v.url as url, u_h_v.status as status, v.id_video
  where u_h_v.id_user = ?";
 $result = $conn->prepare($sql);
 $result->bind_param("i", $_SESSION['id_user']);
-$result = $result->execute(); 
+$result->execute(); 
+$result = $result->get_result();
 //$result = $conn->query($sql);
         if ($result->num_rows > 0) {
             // output data of each row

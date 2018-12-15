@@ -7,7 +7,8 @@ FROM groups g join user_has_group u_h_g using(id_group)
  where u_h_g.id_user = ?";
 $result = $conn->prepare($sql);
 $result->bind_param("i", $_SESSION['id_user']);
-$result = $result->execute(); 
+$result->execute(); 
+$result = $result->get_result();
 //$result = $conn->query($sql);
         if ($result->num_rows > 0) {
             // output data of each row

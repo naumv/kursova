@@ -7,8 +7,9 @@ FROM  videos v join video_has_group v_h_g using(id_video)
 where v_h_g.id_group = ?";
 $result = $conn->prepare($sql);
 $result->bind_param("i", $_SESSION['id_group']);
-$result = $result->execute(); 
-$result = $conn->query($sql);
+$result->execute(); 
+$result = $result->get_result();
+//$result = $conn->query($sql);
         if ($result->num_rows > 0) {
             // output data of each row
             while($row = $result->fetch_assoc()) {
