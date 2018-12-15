@@ -34,7 +34,7 @@ $password = stripslashes($password);
     if (empty($row['password_hash']) or $row['status'] == 'd')
     {
     //если пользователя с введенным логином не существует
-    $_SESSION['error'] = "Користувача {$login} не знайдено";
+    $_SESSION['error'] = "Користувач {$login} не існує або він заблокований";
         exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
     }
     else {
