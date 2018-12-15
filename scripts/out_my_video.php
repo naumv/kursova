@@ -1,4 +1,10 @@
 <?php
+session_start();
+   if(empty($_SESSION['login']) or empty($_SESSION['id_user'])) 
+   {
+       $_SESSION['msg'] = "Доступ до даного функціоналу є лише в зареєстрованих користувачів.";
+       exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
+   }
 require 'connect.php';
         echo "<h2>Ваш список відео</h2>";
 $sql = "SELECT v.name as name , v.url as url, u_h_v.status as status, v.id_video as id_video

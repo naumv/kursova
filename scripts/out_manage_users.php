@@ -1,4 +1,10 @@
 <?php
+    session_start();
+   if(empty($_SESSION['login']) or empty($_SESSION['id_user'])) 
+   {
+       $_SESSION['msg'] = "Доступ до даного функціоналу є лише в зареєстрованих користувачів.";
+       exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
+   }
 require 'connect.php';
         echo <<<HERE
         <h2>Користувачі сайту</h2>
