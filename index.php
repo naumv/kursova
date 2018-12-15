@@ -56,7 +56,7 @@
             <h2>Рейтинг очікування</h2>
             <figure>
                 <img src='image/header1.png' alt='Мадагаскар 3' />
-                <figcaption>Мадагаскар 3. <br> На сайті з <time datetime='2018-06-06 00:01'> 6 червня</time>.</figcaption>
+                <figcaption>Мадагаскар 3. <br> Вже на сайті.</figcaption>
             </figure>
         </header>
         <div class="main_part">
