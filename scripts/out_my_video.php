@@ -4,6 +4,7 @@ session_start();
    {
        $_SESSION['msg'] = "Доступ до даного функціоналу є лише в зареєстрованих користувачів.
        Ввійдіть або зареєструйтесь.";
+       $_SESSION['output'] = "out_rand50.php";
        exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
    }
 require 'connect.php';

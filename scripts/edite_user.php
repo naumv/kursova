@@ -1,9 +1,9 @@
 <?php
    session_start();
-   if(empty($_SESSION['login']) or empty($_SESSION['id_user'])) 
+   session_start();
+   if(empty($_SESSION['login']) or empty($_SESSION['id_user']) or $_SESSION['status'] != 'a') 
    {
-       $_SESSION['msg'] = "Доступ до даного функціоналу є лише в зареєстрованих користувачів.
-       Ввійдіть або зареєструйтесь.";
+       $_SESSION['msg'] = "У Вас відсутні права на дану дію";
        exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
    }
    if (isset($_POST['id_user'])) { 

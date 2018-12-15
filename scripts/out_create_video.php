@@ -3,6 +3,7 @@
    if(empty($_SESSION['login']) or empty($_SESSION['id_user']) or ($_SESSION['status'] != 'a' and $_SESSION['status'] != 'm')) 
    {
        $_SESSION['msg'] = "У Вас відсутні права на дану дію";
+       $_SESSION['output'] = "out_rand50.php";
        exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
    }
 echo <<<HERE
