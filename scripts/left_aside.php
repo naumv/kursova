@@ -6,20 +6,20 @@
         <form action="/scripts/save_user.php" method="post">
         <p>
             <label>Ваш логін:<br></label>
-            <input name="login" type="text" size="15" maxlength="15">
+            <input name="login" type="text" size="15" maxlength="40">
         </p>
         <p>
             <label>Ваше ім'я:<br></label>
-            <input name="name" type="text" size="15" maxlength="15">
+            <input name="name" type="text" size="15" maxlength="40">
         </p>
         <p>
             <label>Ваш пароль:<br></label>
-            <input name="password" type="password" size="15" maxlength="15">
+            <input name="password" type="password" size="15" maxlength="40">
         </p>
 
         <p>
             <label>Ваш пароль ще раз:<br></label>
-            <input name="password_two" type="password" size="15" maxlength="15">
+            <input name="password_two" type="password" size="15" maxlength="40">
         </p>
         <p>
             <input type="submit" name="submit" value="Зареєструватись">
@@ -42,11 +42,11 @@ HERE;
     <form action="/scripts/test_reg.php" method="post">
         <p>
             <label>Ваш логін:<br></label>
-            <input name="login" type="text" size="15" maxlength="15">
+            <input name="login" type="text" size="15" maxlength="40">
         </p>
         <p>
             <label>Ваш пароль:<br></label>
-            <input name="password" type="password" size="15" maxlength="15">
+            <input name="password" type="password" size="15" maxlength="40">
         </p>
         <p>
             <input type="submit" name="submit" value="Ввійти">
@@ -76,7 +76,7 @@ HERE;
         <input type="submit" value="Переглянути мої групи відео">
     </form>
     <form autocomplete="on" class="log_out" action="/scripts/update_name.php" method="post">
-        <input name="name" type="text" class="updete_name" size="15" maxlength="15">
+        <input name="name" type="text" class="updete_name" size="15" maxlength="40">
         <input type="submit" value="Змінити ім'я">
     </form>
 HERE;
