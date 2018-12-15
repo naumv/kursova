@@ -1,5 +1,7 @@
 <?php
     session_start();
+    $_SESSION['max_page'] = 0;
+    $_SESSION['page'] = 0;
     if    (empty($_SESSION['login']) or empty($_SESSION['id_user'])) 
         {
             $_SESSION['msg'] = "Доступ до даного функціоналу є лише в зареєстрованих користувачів.";
