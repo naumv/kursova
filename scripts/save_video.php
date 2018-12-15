@@ -2,7 +2,8 @@
    session_start();
    if(empty($_SESSION['login']) or empty($_SESSION['id_user'])) 
    {
-       $_SESSION['msg'] = "Доступ до даного функціоналу є лише в зареєстрованих користувачів.";
+       $_SESSION['msg'] ="Доступ до даного функціоналу є лише в зареєстрованих користувачів.
+       Ввійдіть або зареєструйтесь.";
        exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
    }
    if (isset($_POST['name'])) { 

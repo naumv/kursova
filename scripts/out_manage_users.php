@@ -1,8 +1,8 @@
 <?php
     session_start();
-   if(empty($_SESSION['login']) or empty($_SESSION['id_user'])) 
+   if(empty($_SESSION['login']) or empty($_SESSION['id_user']) or $_SESSION['status'] != 'a')  
    {
-       $_SESSION['msg'] = "Доступ до даного функціоналу є лише в зареєстрованих користувачів.";
+       $_SESSION['msg'] = "Доступ до даного функціоналу є лише в адміністраторів.";
        exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
    }
 require 'connect.php';
