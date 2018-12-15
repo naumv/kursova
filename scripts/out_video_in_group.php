@@ -2,11 +2,32 @@
 session_start();
 require 'connect.php';
         echo "<h2>Відео в групі</h2>";
+if (isset( $_SESSION['page'])) { 
+        $page = $_SESSION['page']; 
+        }
+else
+        {
+            $page = 0;
+        }
+$skip = $page * 50; 
+
+
+$sql2 = "SELECT count(*)  as count
+        FROM  videos v join video_has_group v_h_g using(id_video) 
+        where v_h_g.id_group = ?";
+        //$result = $conn->query($sql);
+$result2 = $conn->prepare($sql2);
+$result2->bind_param("i", $_SESSION['id_group']);
+$result2->execute(); 
+$result2 = $result2->get_result();
+$row2 = $result2->fetch_assoc();
+$_SESSION['max_page'] = ((int) ($row2['count'] / 50)) - ((($row2['count'] % 50) == 0) ? 1 : 0 ); 
 $sql = "SELECT v.name as name, v.url as url, v.id_video as id_video  
 FROM  videos v join video_has_group v_h_g using(id_video) 
-where v_h_g.id_group = ?";
+where v_h_g.id_group = ?
+LIMIT ? , 50";
 $result = $conn->prepare($sql);
-$result->bind_param("i", $_SESSION['id_group']);
+$result->bind_param("ii", $_SESSION['id_group'], $skip);
 $result->execute(); 
 $result = $result->get_result();
 //$result = $conn->query($sql);

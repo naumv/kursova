@@ -1,7 +1,7 @@
 <?php
 require 'connect.php';
         echo "<h2>Останні додані відео</h2>";
-HERE;
+HERE; 
 if (isset( $_SESSION['page'])) { 
         $page = $_SESSION['page']; 
     }
