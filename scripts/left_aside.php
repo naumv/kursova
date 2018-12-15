@@ -9,7 +9,7 @@
             <input name="login" type="text" size="15" maxlength="15">
         </p>
         <p>
-            <label>Вашt ім'я:<br></label>
+            <label>Ваше ім'я:<br></label>
             <input name="name" type="text" size="15" maxlength="15">
         </p>
         <p>
