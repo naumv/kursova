@@ -64,7 +64,7 @@
  // если такого нет, то сохраняем данные
     //$result2 = $conn->query("INSERT INTO users (login,password_hash, name) VALUES('$login','$password', '$name')");
     // Проверяем, есть ли ошибки
-    $sql = "INSERT INTO users (login,password_hash, name) VALUES(?,?,?)";
+    $sql = "CALL insert_user(?,?,?)";
     $result2 = $conn->prepare($sql);
     $result2->bind_param("sss", $login,$password, $name);
     $result2->execute(); 
@@ -80,6 +80,7 @@
       $_SESSION['login']=$row['login']; 
       $_SESSION['id_user']=$row['id_user'];
       $_SESSION['name'] = $row['name'];
+      $_SESSION['status'] = $row['status'];
       unset($_SESSION['error']);
       exit("<html><head><meta    http-equiv='Refresh' content='0;    URL=../index.php'></head></html>");
     }
