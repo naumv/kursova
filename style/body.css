@@ -134,3 +134,8 @@ body
 {
     border: 1px solid black;
 }
+aside a
+{
+	color: white;
+	text-decoration: underline;
+}
